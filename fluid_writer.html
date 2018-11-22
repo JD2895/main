@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="200" height="200"></canvas>
+    <script>
+	  function draw_array(canvas, pos_array){	//draws an array of points
+		
+		context.beginPath();
+		context.moveTo(100,100);
+		context.moveTo(pos_array[0].x, pos_array[0].y)
+		for (var i = 1; i < pos_array.length; i++) {
+		  context.lineTo(pos_array[i].x, pos_array[i].y);
+		}
+		context.globalAlpha = 1;
+		context.stroke();
+	  }
+	
+      function writeMessage(canvas, message) {
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+		context.globalAlpha = 1 - (position_array.length/40);
+        context.fillText(message, 10, 25);
+      }
+      function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+	  
+	  context.canvas.width  = window.innerWidth * 0.9970209;
+	  context.canvas.height = window.innerHeight * 0.9970209;
+	  
+	  var position_array = new Array();	//array of mouse positions
+      
+	  var message = 'Move your mouse over the screen!';
+      writeMessage(canvas, message);
+
+      canvas.addEventListener('mousemove', function(evt) {
+		var array_max = 40;					//max size of position_array
+        var mousePos = getMousePos(canvas, evt);
+		position_array.push(mousePos);
+		
+		if (position_array.length > array_max){
+		  position_array.shift();
+		}
+		
+        //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y + ',' + position_array.length;
+        //var message = 'Move your mouse over the screen!';
+		var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        writeMessage(canvas, message);
+		draw_array(canvas, position_array);
+      }, false);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+p{
+	color: black;
+	line-height: 1.4;
+	font-weight: 500;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.intro{
+	text-align: center;
+}
+
+.intro-para1{
+	padding-top: 3%;
+	font-size: 7.5vw;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.intro-para2{
+	font-size: 5.2vw;
+	font-family: 'Josefin Sans', sans-serif;
+}
+.intro-para3{
+	padding-top: 30px;
+	font-size: 5.2vw;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.line-divider{ 
+    display:block;
+    border:none;
+    color:white;
+    height:2px;
+    background:black;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0) 85%);
+}
+
+.preview-box {
+	background-color: #EDEDED;
+	padding: 0em !important;
+}
+
+.preview-image {
+	width: 100%;
+	background-color: #EDEDED;
+}
+
+.preview-text{
+	text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+	font-size: 20px;
+    transform: translate(-50%, -50%);
+	text-transform: uppercase;
+	visibility: hidden;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.preview-box:hover .preview-text{
+	visibility: visible;
+}
+
+.preview-box:hover .preview-image{
+	visibility: hidden;
+}
+
+/* FONT AWESOME */
+.fa {
+    padding: 18px;
+	margin-bottom: 30px;
+    width: 50px;
+	font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+	background: #000000;
+	color: white;
+}
